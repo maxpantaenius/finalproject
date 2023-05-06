@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Favorite Places to Travel</title>
+</head>
+<body>
+	<h1>These are my favorite places to travel</h1>
+	<p><strong>In no particular order:</strong></p>
+	<ul>
+		<li><em>Cape Cod, MA</em></li>
+		<li><em>Sedona, AZ</em></li>
+		<li><em>Colorado Springs, CO</em></li>
+	</ul>
+	<p><a href="https://en.wikipedia.org/wiki/Sedona,_Arizona">Sedona, Arizona</a></p>
+	<img src="/Users/maxpantaenius/Downloads/sedona.jpeg" alt="Sedona">
+
+	<h3>What I love about travel</h3>
+	<p>I love experiencing new places and learning about the history behind those locations. One of the most interesting facts I learned about Sedona is that it was at one point under water. In fact, you can find fossils on top of these mountains and on top of the Grand Canyon.</p>
+
+	<hr>
+
+	<h2>Shape Volume Calculator</h2>
+	<p>1. Calculate volume of a cone</p>
+	<p>2. Calculate volume of a cylinder</p>
+	<p>3. Calculate volume of a cube</p>
+
+	<form>
+		<label for="user_choice">Choose 1, 2, or 3:</label>
+		<input type="text" id="user_choice" name="user_choice">
+		<br>
+		<button onclick="calculateVolume()">Calculate</button>
+	</form>
+
+	<p id="result"></p>
+
+	<script>
+		function volume_cone() {
+			let cone_radius = parseFloat(prompt("Enter the cone's radius as a decimal: "));
+			let cone_height = parseFloat(prompt("Enter the cone's height as a decimal: "));
+			let pi = 3.14159265359;
+			let result = pi * cone_radius * cone_radius * (cone_height/3);
+			return result;
+		}
+
+		function volume_cylinder() {
+			let cylinder_radius = parseFloat(prompt("Enter the cylinder's radius as a decimal: "));
+			let cylinder_height = parseFloat(prompt("Enter the cylinder's height as a decimal: "));
+			let pi = 3.14159265359;
+			let result = pi * cylinder_radius * cylinder_radius * cylinder_height;
+			return result;
+		}
+
+		function volume_cube() {
+			let cube_length = parseInt(prompt("Enter the cube's length as a whole number: "));
+			let result = cube_length * cube_length * cube_length;
+			return result;
+		}
+
+		function calculateVolume() {
+			let user_choice = document.getElementById("user_choice").value;
+			let total;
+
+			if(user_choice === "1") {
+				total = volume_cone();
+			}
+			else if(user_choice === "2") {
+				total = volume_cylinder();
+			}
+			else if(user_choice === "3") {
+				total = volume_cube();
+			}
+			else {
+				alert("Error: You entered a bad value. Exiting program.");
+				return;
+			}
+
+			document.getElementById("result").innerHTML = "The volume is: " + total;
+		}
+	</script>
+</body>
+</html>
